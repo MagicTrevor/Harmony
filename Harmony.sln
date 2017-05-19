@@ -1,0 +1,112 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0A47C74C-D82B-4A04-8B78-BB4673676B52}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EB9109D7-C32A-4A90-A08E-D15A9A924B09}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{67BFD0DA-B5EB-412D-84B0-6DBD25D71783}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmony.Core", "src\Harmony.Core\Harmony.Core.csproj", "{0D32061C-8411-47D1-BF4E-349E72FCA042}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmony.Data", "src\Harmony.Data\Harmony.Data.csproj", "{2A209F77-2951-4150-BE7A-8263CB3B5424}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmony.Data.EntityFrameworkCore", "src\Harmony.Data.EntityFrameworkCore\Harmony.Data.EntityFrameworkCore.csproj", "{F13ADD5E-8A20-4E9E-A6FE-1833EEC8C55E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmony.Tests.Data.EntityFrameworkCore", "test\Harmony.Tests.Data.EntityFrameworkCore\Harmony.Tests.Data.EntityFrameworkCore.csproj", "{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E52D618-E6A4-4590-BE13-8828072AD0CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E52D618-E6A4-4590-BE13-8828072AD0CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E52D618-E6A4-4590-BE13-8828072AD0CC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4E52D618-E6A4-4590-BE13-8828072AD0CC}.Debug|x64.Build.0 = Debug|Any CPU
+		{4E52D618-E6A4-4590-BE13-8828072AD0CC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4E52D618-E6A4-4590-BE13-8828072AD0CC}.Debug|x86.Build.0 = Debug|Any CPU
+		{4E52D618-E6A4-4590-BE13-8828072AD0CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E52D618-E6A4-4590-BE13-8828072AD0CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E52D618-E6A4-4590-BE13-8828072AD0CC}.Release|x64.ActiveCfg = Release|Any CPU
+		{4E52D618-E6A4-4590-BE13-8828072AD0CC}.Release|x64.Build.0 = Release|Any CPU
+		{4E52D618-E6A4-4590-BE13-8828072AD0CC}.Release|x86.ActiveCfg = Release|Any CPU
+		{4E52D618-E6A4-4590-BE13-8828072AD0CC}.Release|x86.Build.0 = Release|Any CPU
+		{0D32061C-8411-47D1-BF4E-349E72FCA042}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D32061C-8411-47D1-BF4E-349E72FCA042}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D32061C-8411-47D1-BF4E-349E72FCA042}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D32061C-8411-47D1-BF4E-349E72FCA042}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A209F77-2951-4150-BE7A-8263CB3B5424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A209F77-2951-4150-BE7A-8263CB3B5424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A209F77-2951-4150-BE7A-8263CB3B5424}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2A209F77-2951-4150-BE7A-8263CB3B5424}.Debug|x64.Build.0 = Debug|Any CPU
+		{2A209F77-2951-4150-BE7A-8263CB3B5424}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2A209F77-2951-4150-BE7A-8263CB3B5424}.Debug|x86.Build.0 = Debug|Any CPU
+		{2A209F77-2951-4150-BE7A-8263CB3B5424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A209F77-2951-4150-BE7A-8263CB3B5424}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A209F77-2951-4150-BE7A-8263CB3B5424}.Release|x64.ActiveCfg = Release|Any CPU
+		{2A209F77-2951-4150-BE7A-8263CB3B5424}.Release|x64.Build.0 = Release|Any CPU
+		{2A209F77-2951-4150-BE7A-8263CB3B5424}.Release|x86.ActiveCfg = Release|Any CPU
+		{2A209F77-2951-4150-BE7A-8263CB3B5424}.Release|x86.Build.0 = Release|Any CPU
+		{F13ADD5E-8A20-4E9E-A6FE-1833EEC8C55E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F13ADD5E-8A20-4E9E-A6FE-1833EEC8C55E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F13ADD5E-8A20-4E9E-A6FE-1833EEC8C55E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F13ADD5E-8A20-4E9E-A6FE-1833EEC8C55E}.Debug|x64.Build.0 = Debug|Any CPU
+		{F13ADD5E-8A20-4E9E-A6FE-1833EEC8C55E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F13ADD5E-8A20-4E9E-A6FE-1833EEC8C55E}.Debug|x86.Build.0 = Debug|Any CPU
+		{F13ADD5E-8A20-4E9E-A6FE-1833EEC8C55E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F13ADD5E-8A20-4E9E-A6FE-1833EEC8C55E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F13ADD5E-8A20-4E9E-A6FE-1833EEC8C55E}.Release|x64.ActiveCfg = Release|Any CPU
+		{F13ADD5E-8A20-4E9E-A6FE-1833EEC8C55E}.Release|x64.Build.0 = Release|Any CPU
+		{F13ADD5E-8A20-4E9E-A6FE-1833EEC8C55E}.Release|x86.ActiveCfg = Release|Any CPU
+		{F13ADD5E-8A20-4E9E-A6FE-1833EEC8C55E}.Release|x86.Build.0 = Release|Any CPU
+		{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F}.Debug|x64.Build.0 = Debug|Any CPU
+		{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F}.Debug|x86.Build.0 = Debug|Any CPU
+		{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F}.Release|x64.ActiveCfg = Release|Any CPU
+		{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F}.Release|x64.Build.0 = Release|Any CPU
+		{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F}.Release|x86.ActiveCfg = Release|Any CPU
+		{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0D32061C-8411-47D1-BF4E-349E72FCA042} = {EB9109D7-C32A-4A90-A08E-D15A9A924B09}
+		{2A209F77-2951-4150-BE7A-8263CB3B5424} = {EB9109D7-C32A-4A90-A08E-D15A9A924B09}
+		{F13ADD5E-8A20-4E9E-A6FE-1833EEC8C55E} = {EB9109D7-C32A-4A90-A08E-D15A9A924B09}
+		{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F} = {67BFD0DA-B5EB-412D-84B0-6DBD25D71783}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$0.StandardHeader = $2
+		$2.Text = @\n${FileName}\n \nAuthor:\n      ${AuthorName} <${AuthorEmail}>\n\nCopyright (c) ${Year} ${CopyrightHolder}\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the "Software"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.
+		$0.VersionControlPolicy = $3
+		$3.CommitMessageStyle = $4
+		$4.Wrap = False
+		$4.LineAlign = 0
+		$0.TextStylePolicy = $5
+		$5.FileWidth = 80
+		$5.TabsToSpaces = True
+		$5.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $6
+		$6.scope = text/x-csharp
+		version = 0.1.0-alpha
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,38 @@
+version: '{build}'
+pull_requests:
+  # Do not increment build number for pull requests
+  do_not_increment_build_number: true
+nuget:
+  # Do not publish NuGet packages for pull requests
+  disable_publish_on_pr: true
+environment:
+  # Set the DOTNET_SKIP_FIRST_TIME_EXPERIENCE environment variable to stop wasting time caching packages
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  # Disable sending usage data to Microsoft
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+build_script:
+- ps: .\build.ps1
+test: off
+artifacts:
+# Store NuGet packages
+- path: .\Artifacts\**\*.nupkg
+  name: NuGet
+# Store xUnit Test Results
+- path: .\Artifacts\**\*.trx
+  name: xUnit Test Results
+deploy:
+# Publish NuGet packages
+- provider: NuGet
+  server: https://www.myget.org/F/harmony-ci/api/v2/package
+  api_key:
+    secure: 0TIu1ladl/MtDKeSUVU6nJ0ntB8fXpppFYO6F0CylWNPlQxO7xa6q0BKDSbQ+9e6
+  skip_symbols: true
+  on:
+   branch: master
+- provider: NuGet
+  name: production
+  api_key:
+    secure: E7dQMuWgB400XGqZ8X40gI88Tod+1EXnXdQduf1y8VZydrGGcrIFAROGg7XZEgSe
+  on:
+    branch: master
+    appveyor_repo_tag: true
