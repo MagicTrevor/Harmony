@@ -32,7 +32,3 @@ Pre-release builds are published to [Harmony MyGet gallery.](https://www.myget.o
 ## License
 
 Code released under the [MIT License](https://github.com/MagicTrevor/Harmony/blob/master/LICENSE).
-=======
-[![Build Status](https://travis-ci.org/magictrevor/harmony.png)](https://travis-ci.org/magictrevor/harmony)
-=======
-[![Build status](https://ci.appveyor.com/api/projects/status/6k43rh3bd1kj2rk1?svg=true)](https://ci.appveyor.com/project/MagicTrevor/harmony)
