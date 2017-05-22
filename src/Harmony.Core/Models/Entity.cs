@@ -41,6 +41,8 @@ namespace Harmony.Core.Models
 
             this.Id = id;
         }
+        
+        protected Entity() {}
 
         public override bool Equals(object obj)
         {
