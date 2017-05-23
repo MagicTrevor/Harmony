@@ -25,10 +25,10 @@ Pre-release builds are published to [Harmony MyGet gallery.](https://www.myget.o
 
 |    | Version |
 |:---|--------:|
-|**Harmony.Core**|[![MyGet](https://img.shields.io/myget/harmony-ci/v/Harmony.Core.svg)](https://www.myget.org/packages/harmony-ci/absoluteLatest)|
-|**Harmony.Data**|[![MyGet](https://img.shields.io/myget/harmony-ci/v/Harmony.Data.svg)](https://www.myget.org/packages/harmony-ci/absoluteLatest)|
-|**Harmony.Data.EntityFrameworkCore**|[![MyGet](https://img.shields.io/myget/harmony-ci/v/Harmony.Data.EntityFrameworkCore.svg)](https://www.myget.org/packages/harmony-ci/absoluteLatest)|
-|**Harmony.Web**|[![MyGet](https://img.shields.io/myget/harmony-ci/v/Harmony.Web.svg)](https://www.myget.org/packages/harmony-ci/absoluteLatest)||
+|**Harmony.Core**|[![MyGet](https://img.shields.io/myget/harmony-ci/v/Harmony.Core.svg)](https://www.myget.org/F/harmony-ci/api/v2/package/Harmony.Core/)|
+|**Harmony.Data**|[![MyGet](https://img.shields.io/myget/harmony-ci/v/Harmony.Data.svg)](https://www.myget.org/F/harmony-ci/api/v2/package/Harmony.Data/)|
+|**Harmony.Data.EntityFrameworkCore**|[![MyGet](https://img.shields.io/myget/harmony-ci/v/Harmony.Data.EntityFrameworkCore.svg)](https://www.myget.org/F/harmony-ci/api/v2/package/Harmony.Data.EntityFrameworkCore/)|
+|**Harmony.Web**|[![MyGet](https://img.shields.io/myget/harmony-ci/v/Harmony.Web.svg)](https://www.myget.org/F/harmony-ci/api/v2/package/Harmony.Web/)||
 
 ## License
 
