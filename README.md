@@ -27,7 +27,8 @@ Pre-release builds are published to [Harmony MyGet gallery.](https://www.myget.o
 |:---|--------:|
 |**Harmony.Core**|[![MyGet](https://img.shields.io/myget/harmony-ci/v/Harmony.Core.svg)](https://www.myget.org/packages/harmony-ci/absoluteLatest)|
 |**Harmony.Data**|[![MyGet](https://img.shields.io/myget/harmony-ci/v/Harmony.Data.svg)](https://www.myget.org/packages/harmony-ci/absoluteLatest)|
-|**Harmony.Data.EntityFrameworkCore**|[![MyGet](https://img.shields.io/myget/harmony-ci/v/Harmony.Data.EntityFrameworkCore.svg)](https://www.myget.org/packages/harmony-ci/absoluteLatest)||
+|**Harmony.Data.EntityFrameworkCore**|[![MyGet](https://img.shields.io/myget/harmony-ci/v/Harmony.Data.EntityFrameworkCore.svg)](https://www.myget.org/packages/harmony-ci/absoluteLatest)|
+|**Harmony.Web**|[![MyGet](https://img.shields.io/myget/harmony-ci/v/Harmony.Web.svg)](https://www.myget.org/packages/harmony-ci/absoluteLatest)||
 
 ## License
 
