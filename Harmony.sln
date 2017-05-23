@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmony.Data.EntityFramewor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmony.Tests.Data.EntityFrameworkCore", "test\Harmony.Tests.Data.EntityFrameworkCore\Harmony.Tests.Data.EntityFrameworkCore.csproj", "{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmony.Web", "src\Harmony.Web\Harmony.Web.csproj", "{64B5ED99-F064-4A01-BB00-F8101A46AA53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,12 +87,25 @@ Global
 		{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F}.Release|x64.Build.0 = Release|Any CPU
 		{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F}.Release|x86.ActiveCfg = Release|Any CPU
 		{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F}.Release|x86.Build.0 = Release|Any CPU
+		{64B5ED99-F064-4A01-BB00-F8101A46AA53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64B5ED99-F064-4A01-BB00-F8101A46AA53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64B5ED99-F064-4A01-BB00-F8101A46AA53}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{64B5ED99-F064-4A01-BB00-F8101A46AA53}.Debug|x64.Build.0 = Debug|Any CPU
+		{64B5ED99-F064-4A01-BB00-F8101A46AA53}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{64B5ED99-F064-4A01-BB00-F8101A46AA53}.Debug|x86.Build.0 = Debug|Any CPU
+		{64B5ED99-F064-4A01-BB00-F8101A46AA53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64B5ED99-F064-4A01-BB00-F8101A46AA53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64B5ED99-F064-4A01-BB00-F8101A46AA53}.Release|x64.ActiveCfg = Release|Any CPU
+		{64B5ED99-F064-4A01-BB00-F8101A46AA53}.Release|x64.Build.0 = Release|Any CPU
+		{64B5ED99-F064-4A01-BB00-F8101A46AA53}.Release|x86.ActiveCfg = Release|Any CPU
+		{64B5ED99-F064-4A01-BB00-F8101A46AA53}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0D32061C-8411-47D1-BF4E-349E72FCA042} = {EB9109D7-C32A-4A90-A08E-D15A9A924B09}
 		{2A209F77-2951-4150-BE7A-8263CB3B5424} = {EB9109D7-C32A-4A90-A08E-D15A9A924B09}
 		{F13ADD5E-8A20-4E9E-A6FE-1833EEC8C55E} = {EB9109D7-C32A-4A90-A08E-D15A9A924B09}
 		{DDFD41CF-8C5E-4E2D-A20B-7FE7BB20B86F} = {67BFD0DA-B5EB-412D-84B0-6DBD25D71783}
+		{64B5ED99-F064-4A01-BB00-F8101A46AA53} = {EB9109D7-C32A-4A90-A08E-D15A9A924B09}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
