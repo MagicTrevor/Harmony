@@ -1,8 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <ReleaseVersion>0.1.0-alpha</ReleaseVersion>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <RootNamespace>Harmony.Web</RootNamespace>
+    <PackageId>Harmony.Web</PackageId>
+    <Authors>Trevor Allen</Authors>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup>
