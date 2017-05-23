@@ -32,7 +32,10 @@ namespace Harmony.Data
     public interface IRepository<TEntity, TKey> : IReadOnlyRepository<TEntity, TKey>
         where TEntity : Entity<TKey>
     {
-        Task InsertAsync(TEntity entity, string user);
-        Task UpdateAsync(TEntity entity, string user);
+        void Insert(TEntity entity);
+        Task InsertAsync(TEntity entity);
+        void Update(TEntity entity);
+        Task UpdateAsync(TEntity entity);
+        void Delete(TEntity entity);
     }
 }

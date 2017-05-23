@@ -32,68 +32,38 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Harmony.Data.EntityFrameworkCore
 {
-    public class Repository<TEntity, TKey> : IRepository<TEntity, TKey>, ISoftDeleteRepository<TEntity, TKey>
-        where TEntity: Entity<TKey>, ISoftDeletable
+    public abstract class Repository<TEntity, TKey> : ReadOnlyRepository<TEntity, TKey>, IRepository<TEntity, TKey>
+        where TEntity : Entity<TKey>
     {
-        /// <summary>
-        /// Current EF DBContext instance.
-        /// </summary>
-        protected virtual DbContext Context { get; set; }
-
-        /// <summary>
-        /// DBSet of <see cref="TEntity"/> extracted from <see cref="Context"/>.
-        /// </summary>
-        protected internal DbSet<TEntity> DbSet;
-
         public Repository(DbContext context)
+            : base(context)
         {
-            Context = context;
-            DbSet = context.Set<TEntity>();
         }
 
-        public void SoftDelete(TKey id, string user)
+        public virtual void Insert(TEntity entity)
         {
-            var entity = DbSet.Find(id);
-            if (entity != null) {
-                entity.IsDeleted = true;
-
-                Context.SaveChanges();
-            }
+            DbSet.Add(entity);
         }
 
-        public async Task<TEntity> GetAsync(TKey id)
+        public async virtual Task InsertAsync(TEntity entity)
         {
-            return await DbSet.FindAsync(id);
+            await DbSet.AddAsync(entity);
         }
 
-        public async Task<IEnumerable<TEntity>> GetAllAsync()
+        public virtual void Update(TEntity entity)
         {
-            return await DbSet.ToListAsync<TEntity>();
+            Context.Entry(entity).State = EntityState.Modified;
+            Context.SaveChanges();
         }
 
-        public async Task InsertAsync(TEntity entity, string user)
+        public async virtual Task UpdateAsync(TEntity entity)
         {
-            try 
-            {
-                await DbSet.AddAsync(entity);
-            }
-            catch(DbUpdateException ex)
-            {
-                
-            }
+            Context.Entry(entity).State = EntityState.Modified;
+            await Context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(TEntity entity, string user)
-        {
-            try
-            {
-                Context.Entry(entity).State = EntityState.Modified;
-                await Context.SaveChangesAsync();
-            }
-            catch(DbUpdateException ex)
-            {
-                
-            }
+        public virtual void Delete(TEntity entity) {
+            DbSet.Remove(entity);
         }
     }
 }

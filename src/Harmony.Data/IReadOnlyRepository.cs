@@ -33,7 +33,9 @@ namespace Harmony.Data
     public interface IReadOnlyRepository<TEntity, TKey>
         where TEntity : Entity<TKey>
     {
+        IEnumerable<TEntity> GetAll();
         Task<IEnumerable<TEntity>> GetAllAsync();
+        TEntity Get(TKey id);
         Task<TEntity> GetAsync(TKey id);
     }
 }
