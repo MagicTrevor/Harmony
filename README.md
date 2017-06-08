@@ -21,7 +21,7 @@ Pre-release builds are published to [Harmony MyGet gallery.](https://www.myget.o
 
 ## Status
 
-[![Build status](https://ci.appveyor.com/api/projects/status/6k43rh3bd1kj2rk1?svg=true)](https://ci.appveyor.com/project/MagicTrevor/harmony)
+[![Build status](https://ci.appveyor.com/api/projects/status/github/MagicTrevor/Harmony?svg=true)](https://ci.appveyor.com/project/MagicTrevor/harmony)
 
 |    | Version |
 |:---|--------:|
