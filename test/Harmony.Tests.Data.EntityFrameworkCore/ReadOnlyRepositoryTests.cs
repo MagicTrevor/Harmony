@@ -28,7 +28,7 @@ namespace Harmony.Tests.Data.EntityFrameworkCore
             var repository = new ReadOnlyRepository<TestEntity, Guid>(context);
             var items = repository.GetAllAsync().Result;
 
-            Assert.Equal(1, items.Count());
+            Assert.True(items.Count().Equals(1));
         }
 
         [Fact]

@@ -22,6 +22,8 @@ Pre-release builds are published to [Harmony MyGet gallery.](https://www.myget.o
 ## Status
 
 [![Build status](https://ci.appveyor.com/api/projects/status/github/MagicTrevor/Harmony?svg=true)](https://ci.appveyor.com/project/MagicTrevor/harmony)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/29eb7baae4cc44d6a6baa81e4935174a)](https://www.codacy.com/app/MagicTrevor/Harmony?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MagicTrevor/Harmony&amp;utm_campaign=Badge_Grade)
+[![codecov](https://codecov.io/gh/MagicTrevor/Harmony/branch/master/graph/badge.svg)](https://codecov.io/gh/MagicTrevor/Harmony)
 
 |    | Version |
 |:---|--------:|

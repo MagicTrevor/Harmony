@@ -11,9 +11,17 @@ environment:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   # Disable sending usage data to Microsoft
   DOTNET_CLI_TELEMETRY_OPTOUT: true
+before_build:
+- dotnet restore
+- choco install opencover.portable
+- choco install codecov
 build_script:
-- ps: .\build.ps1
-test: off
+- dotnet publish
+test_script:
+ - cd .\test\Harmony.Tests.Data.EntityFrameworkCore
+ - OpenCover.Console.exe -register:user -oldStyle -target:"C:\Program Files\dotnet\dotnet.exe" -targetargs:"xunit -noshadow" -output:"../../coverage.xml"
+after_test:
+  - codecov -f $ENV:APPVEYOR_BUILD_FOLDER + "\coverage.xml" -t 0b90a1f9-1e46-48b3-b346-024f387d2556
 artifacts:
 # Store NuGet packages
 - path: .\Artifacts\**\*.nupkg
