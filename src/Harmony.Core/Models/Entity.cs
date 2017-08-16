@@ -25,11 +25,14 @@
 // THE SOFTWARE.
 
 using System;
+using System.Collections.Generic;
 
 namespace Harmony.Core.Models
 {
     public abstract class Entity<TId> : IEquatable<Entity<TId>>
     {
+        public ICollection<IEvent> Events { get; }
+
         public virtual TId Id { get; protected set; }
 
         protected Entity(TId id)
@@ -41,8 +44,8 @@ namespace Harmony.Core.Models
 
             this.Id = id;
         }
-        
-        protected Entity() {}
+
+        protected Entity() { }
 
         public override bool Equals(object obj)
         {
