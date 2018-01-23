@@ -6,6 +6,7 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 <ItemGroup>
+    <ProjectReference Include="..\..\src\Harmony.Data.EntityFrameworkCore\Harmony.Data.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\..\src\Harmony.Data\Harmony.Data.csproj" />
     <ProjectReference Include="..\..\src\Harmony.Core\Harmony.Core.csproj" />
   </ItemGroup>
