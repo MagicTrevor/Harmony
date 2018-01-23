@@ -5,7 +5,10 @@
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-
+<ItemGroup>
+    <ProjectReference Include="..\..\src\Harmony.Data\Harmony.Data.csproj" />
+    <ProjectReference Include="..\..\src\Harmony.Core\Harmony.Core.csproj" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0-preview-20170628-02" />
     <PackageReference Include="xunit" Version="2.2.0" />
