@@ -27,7 +27,7 @@ before_build:
 build_script:
 - ps: .\build.ps1
 test_script:
- - .\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:".\test\Harmony.Tests.Data.EntityFrameworkCore\bin\Release\netstandard2.0\Harmony.Tests.Data.EntityFrameworkCore.dll -noshadow" -output:"coverage.xml" -filter:"+[UnitTestTargetProject*]* -[Harmony.Tests.Data.EntityFrameworkCore*]*"
+ - .\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:".\test\Harmony.Tests.Data.EntityFrameworkCore\bin\Release\netstandard2.0\Harmony.Tests.Data.EntityFrameworkCore.dll -noshadow" -output:"coverage.xml" -filter:"+[src*]* -[test*]*"
 after_test:
   - ps: |
       $env:PATH = 'C:\msys64\usr\bin;' + $env:PATH
