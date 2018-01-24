@@ -18,7 +18,7 @@ before_build:
 build_script:
 - dotnet publish
 test_script:
- - OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:".\test\Harmony.Tests.Data.EntityFrameworkCore\bin\Release\netcoreapp2.0\Harmony.Tests.Data.EntityFrameworkCore.dll -noshadow" -output:"coverage.xml" -filter:"+[src*]* -[test*]*"
+ - OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:"C:\projects\harmony\test\Harmony.Tests.Data.EntityFrameworkCore\bin\Debug\netcoreapp2.0\Harmony.Tests.Data.EntityFrameworkCore.dll -noshadow" -output:"coverage.xml" -filter:"+[src*]* -[test*]*"
 after_test:
   - codecov -f "coverage.xml" -t 0b90a1f9-1e46-48b3-b346-024f387d2556
 artifacts:
