@@ -18,6 +18,7 @@ before_build:
 build_script:
 - dotnet publish
 test_script:
+ - cd .\test\Harmony.Tests.Data.EntityFrameworkCore
  - OpenCover.Console.exe -register:user -target:"C:\Program Files\dotnet\dotnet.exe" -targetargs:"xunit " + $ENV:APPVEYOR_BUILD_FOLDER + "C:\projects\harmony\test\Harmony.Tests.Data.EntityFrameworkCore -noshadow" -output:"coverage.xml" -filter:"+[src*]* -[test*]*"
 after_test:
   - codecov -f ".\test\Harmony.Tests.Data.EntityFrameworkCore\coverage.xml" -t 0b90a1f9-1e46-48b3-b346-024f387d2556
