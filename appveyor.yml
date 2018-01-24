@@ -18,12 +18,9 @@ before_build:
 build_script:
 - dotnet publish
 test_script:
- - .\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:".\test\Harmony.Tests.Data.EntityFrameworkCore\bin\Release\netstandard2.0\Harmony.Tests.Data.EntityFrameworkCore.dll -noshadow" -output:"coverage.xml" -filter:"+[src*]* -[test*]*"
+ - OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:".\test\Harmony.Tests.Data.EntityFrameworkCore\bin\Release\netstandard2.0\Harmony.Tests.Data.EntityFrameworkCore.dll -noshadow" -output:"coverage.xml" -filter:"+[src*]* -[test*]*"
 after_test:
-  - ps: |
-      $env:PATH = 'C:\msys64\usr\bin;' + $env:PATH
-      Invoke-WebRequest -Uri 'https://codecov.io/bash' -OutFile codecov.sh
-      bash codecov.sh -f "coverage.xml" -t 0b90a1f9-1e46-48b3-b346-024f387d2556
+  - codecov -f "coverage.xml" -t 0b90a1f9-1e46-48b3-b346-024f387d2556
 artifacts:
 # Store NuGet packages
 - path: .\Artifacts\**\*.nupkg
