@@ -12,7 +12,7 @@ environment:
   # Disable sending usage data to Microsoft
   DOTNET_CLI_TELEMETRY_OPTOUT: true
 before_build:
-- dotnet restore --infer-runtimes
+- dotnet restore
 - choco install opencover.portable
 - choco install codecov
 build_script:
