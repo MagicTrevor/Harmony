@@ -19,7 +19,7 @@ build_script:
 - dotnet publish
 test_script:
  - cd .\test\Harmony.Tests.Data.EntityFrameworkCore
- - OpenCover.Console.exe -register:user -target:"C:\Program Files\dotnet\dotnet.exe" -targetargs:"xunit " + $ENV:APPVEYOR_BUILD_FOLDER + "C:\projects\harmony\test\Harmony.Tests.Data.EntityFrameworkCore -c Debug -noshadow" -output:$ENV:APPVEYOR_BUILD_FOLDER + "\coverage.xml -filter:"+[src*]* -[test*]*"
+ - OpenCover.Console.exe -register:user -target:"C:\Program Files\dotnet\dotnet.exe" -targetargs:"xunit \" + $ENV:APPVEYOR_BUILD_FOLDER + \"C:\projects\harmony\test\Harmony.Tests.Data.EntityFrameworkCore -c Debug -noshadow" -output:$ENV:APPVEYOR_BUILD_FOLDER + "\coverage.xml -filter:"+[src*]* -[test*]*"
 after_test:
   - codecov -f $ENV:APPVEYOR_BUILD_FOLDER + "\coverage.xml" -t 0b90a1f9-1e46-48b3-b346-024f387d2556
 artifacts:
