@@ -11,18 +11,17 @@ environment:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   # Disable sending usage data to Microsoft
   DOTNET_CLI_TELEMETRY_OPTOUT: true
-install:
-# Download .NET Core 2.0 Preview 2 SDK and add to PATH
-  - ps: $urlCurrent = "https://download.microsoft.com/download/1/B/4/1B4DE605-8378-47A5-B01B-2C79D6C55519/dotnet-sdk-2.0.0-win-x64.zip"
-  - ps: $env:DOTNET_INSTALL_DIR = "$pwd\.dotnetsdk"
-  - ps: mkdir $env:DOTNET_INSTALL_DIR -Force | Out-Null
-  - ps: $tempFileCurrent = [System.IO.Path]::GetTempFileName()
-  - ps: (New-Object System.Net.WebClient).DownloadFile($urlCurrent, $tempFileCurrent)
-  - ps: Add-Type -AssemblyName System.IO.Compression.FileSystem; [System.IO.Compression.ZipFile]::ExtractToDirectory($tempFileCurrent, $env:DOTNET_INSTALL_DIR)
-  - ps: $env:Path = "$env:DOTNET_INSTALL_DIR;$env:Path" 
+before_build:
+- dotnet restore
+- choco install opencover.portable
+- choco install codecov
 build_script:
-- ps: .\build.ps1
-test: off
+- dotnet publish
+test_script:
+ - cd .\test\Harmony.Tests.Data.EntityFrameworkCore
+ - OpenCover.Console.exe -register:user -oldStyle -target:"C:\Program Files\dotnet\dotnet.exe" -targetargs:"xunit -noshadow" -output:"../../coverage.xml"
+after_test:
+  - codecov -f "C:\projects\harmony\coverage.xml" -t 0b90a1f9-1e46-48b3-b346-024f387d2556
 artifacts:
 # Store NuGet packages
 - path: .\Artifacts\**\*.nupkg

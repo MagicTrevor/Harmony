@@ -16,5 +16,19 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.0.0" />
+<<<<<<< HEAD
+=======
+    <PackageReference Include="System.Runtime" Version="4.3.0" />
+    <PackageReference Include="xunit" Version="2.3.1" />
+    <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Harmony.Data.EntityFrameworkCore\Harmony.Data.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\src\Harmony.Core\Harmony.Core.csproj" />
+    <ProjectReference Include="..\..\src\Harmony.Data\Harmony.Data.csproj" />
+>>>>>>> master
   </ItemGroup>
 </Project>
