@@ -11,8 +11,6 @@ environment:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   # Disable sending usage data to Microsoft
   DOTNET_CLI_TELEMETRY_OPTOUT: true
-init:
-  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 before_build:
 - dotnet restore
 - choco install opencover.portable
@@ -21,7 +19,7 @@ build_script:
 - dotnet publish
 test_script:
  - cd .\test\Harmony.Tests.Data.EntityFrameworkCore
- - OpenCover.Console.exe -register:user -oldStyle -target:"C:\Program Files\dotnet\dotnet.exe" -targetargs:"xunit -noshadow" -output:$ENV:APPVEYOR_BUILD_FOLDER + "coverage.xml"
+ - OpenCover.Console.exe -register:user -oldStyle -target:"C:\Program Files\dotnet\dotnet.exe" -targetargs:"xunit -noshadow" -output:"../../coverage.xml"
 after_test:
   - codecov -f $ENV:APPVEYOR_BUILD_FOLDER + "\coverage.xml" -t 0b90a1f9-1e46-48b3-b346-024f387d2556
 artifacts:
@@ -47,5 +45,3 @@ deploy:
   on:
     branch: master
     appveyor_repo_tag: true
-on_finish:
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
