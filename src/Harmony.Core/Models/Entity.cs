@@ -54,7 +54,7 @@ namespace Harmony.Core.Models
             {
                 return this.Equals(entity);
             }
-            return base.Equals(obj);
+            return this.Equals(obj);
         }
 
         public override int GetHashCode()

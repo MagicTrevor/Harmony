@@ -35,7 +35,7 @@ namespace Harmony.Data.EntityFrameworkCore
     public abstract class Repository<TEntity, TKey> : ReadOnlyRepository<TEntity, TKey>, IRepository<TEntity, TKey>
         where TEntity : Entity<TKey>
     {
-        public Repository(DbContext context)
+        protected Repository(DbContext context)
             : base(context)
         {
         }
