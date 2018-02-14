@@ -1,5 +1,5 @@
-﻿//
-// Entity.cs
+//
+// IEntity.cs
 //
 // Author:
 //       Trevor Allen <magictrevor@icloud.com>
@@ -29,56 +29,12 @@ using System.Collections.Generic;
 
 namespace Harmony.Core.Models
 {
-    public abstract class Entity<TId> : IEntity<TId>
-    {
-        public ICollection<IEvent> Events { get; }
+    public interface IEntity {
+        object Id { get; }
+        byte[] Version { get; set; }
+    }
 
-        public virtual TId Id { get; set; }
-        object IEntity.Id
-        {
-            get { return this.Id; }
-        }
-
-        public byte[] Version { get; set; }
-
-        protected Entity(TId id)
-        {
-            if (object.Equals(id, default(TId)))
-            {
-                throw new ArgumentException("The ID cannot be the default value.", "id");
-            }
-
-            this.Id = id;
-        }
-
-        protected Entity() { }
-
-        public override bool Equals(object obj)
-        {
-            var entity = obj as Entity<TId>;
-            if (entity != null)
-            {
-                return this.Equals(entity);
-            }
-            return this.Equals(obj);
-        }
-
-        public override int GetHashCode()
-        {
-            return this.Id.GetHashCode();
-        }
-
-        #region IEquatable<Entity> Members
-
-        public bool Equals(Entity<TId> other)
-        {
-            if (other == null)
-            {
-                return false;
-            }
-            return this.Id.Equals(other.Id);
-        }
-
-        #endregion
+    public interface IEntity<T> : IEntity {
+        new T Id { get; set; }
     }
 }
