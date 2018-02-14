@@ -29,7 +29,7 @@ using System.Collections.Generic;
 
 namespace Harmony.Core.Models
 {
-    public abstract class Entity<TId> : IEntity<TId>
+    public abstract class Entity<TId> : IEntity<TId>, IEquatable<Entity<TId>>
     {
         public ICollection<IEvent> Events { get; }
 
