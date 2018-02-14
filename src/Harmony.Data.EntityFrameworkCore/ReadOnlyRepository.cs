@@ -7,41 +7,35 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Harmony.Data.EntityFrameworkCore
 {
-    public class ReadOnlyRepository<TEntity, TKey> : IReadOnlyRepository<TEntity, TKey>
-        where TEntity : Entity<TKey>
+    public class ReadOnlyRepository<TContext> : IReadOnlyRepository
+        where TContext : DbContext
     {
         /// <summary>
         /// Current EF DBContext instance.
         /// </summary>
-        protected virtual DbContext Context { get; set; }
+        protected readonly TContext context;
 
-        /// <summary>
-        /// DBSet of <see cref="TEntity"/> extracted from <see cref="Context"/>.
-        /// </summary>
-        internal DbSet<TEntity> DbSet;
-
-        public ReadOnlyRepository(DbContext context)
+        public ReadOnlyRepository(TContext context)
         {
-            Context = context;
-            DbSet = context.Set<TEntity>();
+            this.context = context;
         }
 
-        public TEntity Get(TKey id) {
-            return DbSet.Find(id);
+        public TEntity Get<TEntity>(object id) where TEntity: class, IEntity {
+            return context.Set<TEntity>().Find(id);
         }
 
-        public async Task<TEntity> GetAsync(TKey id)
+        public async Task<TEntity> GetAsync<TEntity>(object id) where TEntity: class, IEntity
         {
-            return await DbSet.FindAsync(id);
+            return await context.Set<TEntity>().FindAsync(id);
         }
 
-        public IEnumerable<TEntity> GetAll() {
-            return DbSet.ToList<TEntity>();
+        public IEnumerable<TEntity> GetAll<TEntity>() where TEntity: class, IEntity {
+            return context.Set<TEntity>().ToList<TEntity>();
         }
         
-        public async Task<IEnumerable<TEntity>> GetAllAsync()
+        public async Task<IEnumerable<TEntity>> GetAllAsync<TEntity>() where TEntity: class, IEntity
         {
-            return await DbSet.ToListAsync<TEntity>();
+            return await context.Set<TEntity>().ToListAsync<TEntity>();
         }
     }
 }

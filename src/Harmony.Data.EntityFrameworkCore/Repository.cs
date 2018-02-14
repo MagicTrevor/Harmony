@@ -32,38 +32,38 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Harmony.Data.EntityFrameworkCore
 {
-    public abstract class Repository<TEntity, TKey> : ReadOnlyRepository<TEntity, TKey>, IRepository<TEntity, TKey>
-        where TEntity : Entity<TKey>
+    public abstract class Repository<Tcontext> : ReadOnlyRepository<Tcontext>, IRepository
+        where Tcontext : DbContext
     {
-        protected Repository(DbContext context)
+        protected Repository(Tcontext context)
             : base(context)
         {
         }
 
-        public virtual void Insert(TEntity entity)
+        public virtual void Insert<TEntity>(TEntity entity) where TEntity: class, IEntity
         {
-            DbSet.Add(entity);
+            context.Set<TEntity>().Add(entity);
         }
 
-        public async virtual Task InsertAsync(TEntity entity)
+        public async virtual Task InsertAsync<TEntity>(TEntity entity) where TEntity: class, IEntity
         {
-            await DbSet.AddAsync(entity);
+            await context.Set<TEntity>().AddAsync(entity);
         }
 
-        public virtual void Update(TEntity entity)
+        public virtual void Update<TEntity>(TEntity entity) where TEntity: class, IEntity
         {
-            Context.Entry(entity).State = EntityState.Modified;
-            Context.SaveChanges();
+            context.Entry(entity).State = EntityState.Modified;
+            context.SaveChanges();
         }
 
-        public async virtual Task UpdateAsync(TEntity entity)
+        public async virtual Task UpdateAsync<TEntity>(TEntity entity) where TEntity: class, IEntity
         {
-            Context.Entry(entity).State = EntityState.Modified;
-            await Context.SaveChangesAsync();
+            context.Entry(entity).State = EntityState.Modified;
+            await context.SaveChangesAsync();
         }
 
-        public virtual void Delete(TEntity entity) {
-            DbSet.Remove(entity);
+        public virtual void Delete<TEntity>(TEntity entity) where TEntity: class, IEntity {
+            context.Set<TEntity>().Remove(entity);
         }
     }
 }
