@@ -29,13 +29,12 @@ using Harmony.Core.Models;
 
 namespace Harmony.Data
 {
-    public interface IRepository<TEntity, TKey> : IReadOnlyRepository<TEntity, TKey>
-        where TEntity : Entity<TKey>
+    public interface IRepository : IReadOnlyRepository
     {
-        void Insert(TEntity entity);
-        Task InsertAsync(TEntity entity);
-        void Update(TEntity entity);
-        Task UpdateAsync(TEntity entity);
-        void Delete(TEntity entity);
+        void Insert<TEntity>(TEntity entity) where TEntity: class, IEntity;
+        Task InsertAsync<TEntity>(TEntity entity) where TEntity: class, IEntity;
+        void Update<TEntity>(TEntity entity) where TEntity: class, IEntity;
+        Task UpdateAsync<TEntity>(TEntity entity) where TEntity: class, IEntity;
+        void Delete<TEntity>(TEntity entity) where TEntity: class, IEntity;
     }
 }

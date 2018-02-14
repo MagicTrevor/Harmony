@@ -30,12 +30,11 @@ using Harmony.Core.Models;
 
 namespace Harmony.Data
 {
-    public interface IReadOnlyRepository<TEntity, TKey>
-        where TEntity : Entity<TKey>
+    public interface IReadOnlyRepository
     {
-        IEnumerable<TEntity> GetAll();
-        Task<IEnumerable<TEntity>> GetAllAsync();
-        TEntity Get(TKey id);
-        Task<TEntity> GetAsync(TKey id);
+        IEnumerable<TEntity> GetAll<TEntity>() where TEntity: class, IEntity;
+        Task<IEnumerable<TEntity>> GetAllAsync<TEntity>() where TEntity: class, IEntity;
+        TEntity Get<TEntity>(object id) where TEntity: class, IEntity;
+        Task<TEntity> GetAsync<TEntity>(object id) where TEntity: class, IEntity;
     }
 }
