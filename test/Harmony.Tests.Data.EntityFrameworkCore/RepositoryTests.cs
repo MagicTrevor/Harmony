@@ -8,9 +8,6 @@ namespace Harmony.Tests.Data.EntityFrameworkCore
 {
     public class RepositoryTests
     {
-        public RepositoryTests()
-        {
-        }
 
         [Fact]
         public void AddSingle()
