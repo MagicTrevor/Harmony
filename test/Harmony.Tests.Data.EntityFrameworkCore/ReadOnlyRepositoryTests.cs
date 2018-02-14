@@ -25,8 +25,8 @@ namespace Harmony.Tests.Data.EntityFrameworkCore
             context.Entities.Add(testEntity);
             context.SaveChanges();
 
-            var repository = new ReadOnlyRepository<TestEntity, Guid>(context);
-            var items = repository.GetAllAsync().Result;
+            var repository = new ReadOnlyRepository<TestDbContext>(context);
+            var items = repository.GetAllAsync<TestEntity>().Result;
 
             Assert.True(items.Count().Equals(1));
         }
@@ -48,10 +48,33 @@ namespace Harmony.Tests.Data.EntityFrameworkCore
             context.Entities.Add(testEntity2);
             context.SaveChanges();
 
-            var repository = new ReadOnlyRepository<TestEntity, Guid>(context);
-            var item = repository.GetAsync(testEntity.Id).Result;
+            var repository = new ReadOnlyRepository<TestDbContext>(context);
+            var item = repository.GetAsync<TestEntity>(testEntity.Id).Result;
 
             Assert.Equal(testEntity.Id, item.Id);
+        }
+
+        [Fact]
+        public void GetAll()
+        {
+            var options = new DbContextOptionsBuilder<TestDbContext>()
+                .UseInMemoryDatabase(databaseName: "find_single")
+                .Options;
+
+            var context = new TestDbContext(options);
+
+            var testEntity = new TestEntity();
+
+            var testEntity2 = new TestEntity();
+
+            context.Entities.Add(testEntity);
+            context.Entities.Add(testEntity2);
+            context.SaveChanges();
+
+            var repository = new ReadOnlyRepository<TestDbContext>(context);
+            var items = repository.GetAllAsync<TestEntity>().Result;
+
+            Assert.Equal(2, items.Count());
         }
     }
 }

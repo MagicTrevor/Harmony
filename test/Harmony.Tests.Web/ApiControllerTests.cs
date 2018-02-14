@@ -25,7 +25,7 @@ namespace Harmony.Tests.Web
             context.Entities.Add(testEntity);
             context.SaveChanges();
 
-            var repository = new ReadOnlyRepository<TestEntity, Guid>(context);
+            var repository = new ReadOnlyRepository<TestDbContext>(context);
             var controller = new TestsController(repository);
 
             var response = controller.List().Result;

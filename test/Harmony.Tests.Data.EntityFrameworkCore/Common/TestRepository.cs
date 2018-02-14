@@ -1,5 +1,5 @@
-﻿﻿//
-// Repository.cs
+//
+// TestEntity.cs
 //
 // Author:
 //       Trevor Allen <MagicTrevor.icloud.com>
@@ -25,45 +25,18 @@
 // THE SOFTWARE.
 
 using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Harmony.Core.Models;
+using Harmony.Data.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Harmony.Data.EntityFrameworkCore
+namespace Harmony.Tests.Data.EntityFrameworkCore
 {
-    public abstract class Repository<Tcontext> : ReadOnlyRepository<Tcontext>, IRepository
-        where Tcontext : DbContext
+    public class TestRepository<TContext> : Repository<TContext>
+        where TContext : DbContext
     {
-        protected Repository(Tcontext context)
+        public TestRepository(TContext context)
             : base(context)
         {
-        }
-
-        public virtual void Insert<TEntity>(TEntity entity) where TEntity: class, IEntity
-        {
-            context.Set<TEntity>().Add(entity);
-        }
-
-        public async virtual Task InsertAsync<TEntity>(TEntity entity) where TEntity: class, IEntity
-        {
-            await context.Set<TEntity>().AddAsync(entity);
-        }
-
-        public virtual void Update<TEntity>(TEntity entity) where TEntity: class, IEntity
-        {
-            context.Entry(entity).State = EntityState.Modified;
-            context.SaveChanges();
-        }
-
-        public async virtual Task UpdateAsync<TEntity>(TEntity entity) where TEntity: class, IEntity
-        {
-            context.Entry(entity).State = EntityState.Modified;
-            await context.SaveChangesAsync();
-        }
-
-        public virtual void Delete<TEntity>(TEntity entity) where TEntity: class, IEntity {
-            context.Set<TEntity>().Remove(entity);
         }
     }
 }

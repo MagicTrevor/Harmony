@@ -35,23 +35,23 @@ namespace Harmony.Web
     [Route("api/[controller]")]
     public abstract class ApiController<TEntity, TKey> : ControllerBase where TEntity : Entity<TKey>
     {
-        protected readonly IReadOnlyRepository<TEntity, TKey> _repository;
+        protected readonly IReadOnlyRepository _repository;
 
-        protected ApiController(IReadOnlyRepository<TEntity, TKey> repository)
+        protected ApiController(IReadOnlyRepository repository)
         {
             _repository = repository;
         }
 
         [HttpGet("{id}")]
-        public virtual async Task<TEntity> Get(TKey id)
+        public virtual async Task<TEntity> Get(object id)
         {
-            return await _repository.GetAsync(id);
+            return await _repository.GetAsync<TEntity>(id);
         }
 
         [HttpGet()]
         public virtual async Task<IEnumerable<TEntity>> List()
         {
-            return await _repository.GetAllAsync();
+            return await _repository.GetAllAsync<TEntity>();
         }
     }
 }
