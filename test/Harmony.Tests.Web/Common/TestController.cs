@@ -5,6 +5,6 @@ using Harmony.Web;
 namespace Harmony.Tests.Web {
     public class TestsController : ApiController<TestEntity, Guid> {
 
-        public TestsController(IReadOnlyRepository<TestEntity, Guid> repository) : base(repository) {}
+        public TestsController(IReadOnlyRepository repository) : base(repository) {}
     }
 }
