@@ -1,13 +1,20 @@
 using System;
 using System.Linq.Expressions;
 
-namespace Harmony.Core.Models {
-    public abstract class Specification<TEntity> {
-        public abstract Expression<Func<TEntity, bool>> ToExpression();
+namespace Harmony.Core.Models
+{
+    public class Specification<TEntity>
+    {
+        public Expression<Func<TEntity, bool>> Expression { get; }
 
-        public bool IsSatisfiedBy(TEntity entity) {
-            Func<TEntity, bool> predicate = ToExpression().Compile();
-            return predicate(entity);
+        public Specification(Expression<Func<TEntity, bool>> expression)
+        {
+            Expression = expression;
+        }
+
+        public bool IsSatisfiedBy(TEntity entity)
+        {
+            return Expression.Compile().Invoke(entity);
         }
     }
 }
