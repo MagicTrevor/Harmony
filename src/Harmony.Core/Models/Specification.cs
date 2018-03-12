@@ -1,20 +1,21 @@
 using System;
 using System.Linq.Expressions;
+using Harmony.Core.Specifications;
 
 namespace Harmony.Core.Models
 {
-    public class Specification<TEntity>
+    public abstract class Specification<T>
     {
-        public Expression<Func<TEntity, bool>> Expression { get; }
+        public abstract Expression<Func<T, bool>> ToExpression();
 
-        public Specification(Expression<Func<TEntity, bool>> expression)
+        public bool IsSatisfiedBy(T entity)
         {
-            Expression = expression;
+            return ToExpression().Compile().Invoke(entity);
         }
 
-        public bool IsSatisfiedBy(TEntity entity)
+        public Specification<T> And(Specification<T> specification)
         {
-            return Expression.Compile().Invoke(entity);
+            return new AndSpecification<T>(this, specification);
         }
     }
 }
