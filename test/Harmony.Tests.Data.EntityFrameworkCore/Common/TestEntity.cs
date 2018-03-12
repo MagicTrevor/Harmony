@@ -35,5 +35,7 @@ namespace Harmony.Tests.Data.EntityFrameworkCore
             : base(Guid.NewGuid())
         {
         }
+
+        public string Name { get; set; }
     }
 }

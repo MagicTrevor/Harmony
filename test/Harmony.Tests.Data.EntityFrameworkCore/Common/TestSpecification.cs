@@ -1,10 +1,10 @@
-﻿//
-// IReadOnlyRepository.cs
+//
+// TestSpecification.cs
 //
 // Author:
-//       Trevor Allen <MagicTrevor@icloud.com>
+//       Trevor Allen <MagicTrevor.icloud.com>
 //
-// Copyright (c) 2017
+// Copyright (c) 2017 
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,18 +24,26 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using System;
+using System.Linq.Expressions;
 using Harmony.Core.Models;
 
-namespace Harmony.Data
+namespace Harmony.Tests.Data.EntityFrameworkCore
 {
-    public interface IReadOnlyRepository
+    public class TestSpecification : Specification<TestEntity>
     {
-        IReadOnlyCollection<TEntity> GetAll<TEntity>() where TEntity: class, IEntity;
-        Task<IReadOnlyCollection<TEntity>> GetAllAsync<TEntity>() where TEntity: class, IEntity;
-        TEntity Get<TEntity>(object id) where TEntity: class, IEntity;
-        Task<TEntity> GetAsync<TEntity>(object id) where TEntity: class, IEntity;
-        IReadOnlyCollection<TEntity> Find<TEntity>(Specification<TEntity> specification) where TEntity : class, IEntity;
+        private readonly string _name;
+
+
+        public TestSpecification(string name)
+        {
+            _name = name;
+        }
+
+
+        public override Expression<Func<TestEntity, bool>> ToExpression()
+        {
+            return entity => entity.Name == _name;
+        }
     }
 }
