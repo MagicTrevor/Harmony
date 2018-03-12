@@ -1,5 +1,5 @@
-﻿﻿//
-// TestEntity.cs
+//
+// TestSpecification.cs
 //
 // Author:
 //       Trevor Allen <MagicTrevor.icloud.com>
@@ -25,17 +25,25 @@
 // THE SOFTWARE.
 
 using System;
+using System.Linq.Expressions;
 using Harmony.Core.Models;
 
 namespace Harmony.Tests.Data.EntityFrameworkCore
 {
-    public class TestEntity : Entity<Guid>
+    public class TestSpecification : Specification<TestEntity>
     {
-        public TestEntity()
-            : base(Guid.NewGuid())
+        private readonly string _name;
+
+
+        public TestSpecification(string name)
         {
+            _name = name;
         }
 
-        public string Name { get; set; }
+
+        public override Expression<Func<TestEntity, bool>> ToExpression()
+        {
+            return entity => entity.Name == _name;
+        }
     }
 }

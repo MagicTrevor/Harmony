@@ -76,5 +76,31 @@ namespace Harmony.Tests.Data.EntityFrameworkCore
 
             Assert.Equal(2, items.Count());
         }
+
+        [Fact]
+        public void UseSpecification()
+        {
+            var options = new DbContextOptionsBuilder<TestDbContext>()
+                .UseInMemoryDatabase(databaseName: "find_single")
+                .Options;
+
+            var context = new TestDbContext(options);
+
+            var testEntity = new TestEntity();
+            testEntity.Name = "Test1";
+
+            var testEntity2 = new TestEntity();
+            testEntity2.Name = "Test2";
+
+            context.Entities.Add(testEntity);
+            context.Entities.Add(testEntity2);
+            context.SaveChanges();
+
+            var repository = new ReadOnlyRepository<TestDbContext>(context);
+            var items = repository.Find<TestEntity>(new TestSpecification("Test2"));
+
+            Assert.Single(items);
+            Assert.Equal("Test2", items.First().Name);
+        }
     }
 }
