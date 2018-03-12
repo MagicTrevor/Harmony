@@ -29,13 +29,19 @@ namespace Harmony.Data.EntityFrameworkCore
             return await context.Set<TEntity>().FindAsync(id);
         }
 
-        public IEnumerable<TEntity> GetAll<TEntity>() where TEntity: class, IEntity {
+        public IReadOnlyCollection<TEntity> GetAll<TEntity>() where TEntity: class, IEntity {
             return context.Set<TEntity>().ToList<TEntity>();
         }
         
-        public async Task<IEnumerable<TEntity>> GetAllAsync<TEntity>() where TEntity: class, IEntity
+        public async Task<IReadOnlyCollection<TEntity>> GetAllAsync<TEntity>() where TEntity: class, IEntity
         {
             return await context.Set<TEntity>().ToListAsync<TEntity>();
+        }
+
+        public IReadOnlyCollection<TEntity> Find<TEntity>(Specification<TEntity> specification) where TEntity : class, IEntity
+        {
+            var query = context.Set<TEntity>().Where(specification.ToExpression());
+            return query.ToList();
         }
     }
 }

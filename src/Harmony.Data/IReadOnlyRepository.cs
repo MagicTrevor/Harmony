@@ -32,9 +32,10 @@ namespace Harmony.Data
 {
     public interface IReadOnlyRepository
     {
-        IEnumerable<TEntity> GetAll<TEntity>() where TEntity: class, IEntity;
-        Task<IEnumerable<TEntity>> GetAllAsync<TEntity>() where TEntity: class, IEntity;
+        IReadOnlyCollection<TEntity> GetAll<TEntity>() where TEntity: class, IEntity;
+        Task<IReadOnlyCollection<TEntity>> GetAllAsync<TEntity>() where TEntity: class, IEntity;
         TEntity Get<TEntity>(object id) where TEntity: class, IEntity;
         Task<TEntity> GetAsync<TEntity>(object id) where TEntity: class, IEntity;
+        IReadOnlyCollection<TEntity> Find<TEntity>(Specification<TEntity> specification) where TEntity : class, IEntity;
     }
 }

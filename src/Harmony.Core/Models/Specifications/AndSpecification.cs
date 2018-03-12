@@ -5,25 +5,27 @@ using Harmony.Core.Models;
 
 namespace Harmony.Core.Specifications
 {
-    public class AndSpecification<T> : ISpecification<T>
+    internal class AndSpecification<T> : Specification<T>
     {
-        private readonly ISpecification<T> _left;
-        private readonly ISpecification<T> _right;
+        private readonly Specification<T> _left;
+        private readonly Specification<T> _right;
 
-        public AndSpecification(ISpecification<T> left, ISpecification<T> right)
+        public AndSpecification(Specification<T> left, Specification<T> right)
         {
             _right = right;
             _left = left;
         }
 
-        public Expression<Func<T, bool>> IsSatisfiedBy()
+        public override Expression<Func<T, bool>> ToExpression()
         {
-            var leftExpression = _left.IsSatisfiedBy();
-            var rightExpression = _right.IsSatisfiedBy();
+            Expression<Func<T, bool>> leftExpression = _left.ToExpression();
+            Expression<Func<T, bool>> rightExpression = _right.ToExpression();
 
-            var andExpression = Expression.AndAlso(leftExpression.Body, rightExpression.Body);
+            BinaryExpression andExpression = Expression.AndAlso(
+                leftExpression.Body, rightExpression.Body);
 
-            return Expression.Lambda<Func<T, bool>>(andExpression, leftExpression.Parameters.Single());
+            return Expression.Lambda<Func<T, bool>>(
+                andExpression, leftExpression.Parameters.Single());
         }
     }
 }
