@@ -1,37 +1,38 @@
 version: '{build}'
-image: Visual Studio 2017
+
+image: Visual Studio 2019
+
 pull_requests:
   # Do not increment build number for pull requests
   do_not_increment_build_number: true
+
 nuget:
   # Do not publish NuGet packages for pull requests
   disable_publish_on_pr: true
+
 environment:
   # Set the DOTNET_SKIP_FIRST_TIME_EXPERIENCE environment variable to stop wasting time caching packages
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   # Disable sending usage data to Microsoft
   DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+configuration: Release
+
 branches:
   only:
     - master
+
 before_build:
 - dotnet restore
-- choco install opencover.portable
-- choco install codecov
+
 build_script:
-- dotnet publish
-test_script:
- - cd .\test\Harmony.Tests.Data.EntityFrameworkCore
- - OpenCover.Console.exe -register:user -oldStyle -target:"C:\Program Files\dotnet\dotnet.exe" -targetargs:"xunit -noshadow" -output:"../../coverage.xml"
-after_test:
-  - codecov -f "C:\projects\harmony\coverage.xml" -t 0b90a1f9-1e46-48b3-b346-024f387d2556
+- dotnet publish --version-suffix "$env:appveyor_build_number"
+
 artifacts:
 # Store NuGet packages
 - path: .\Artifacts\**\*.nupkg
   name: NuGet
-# Store xUnit Test Results
-- path: .\Artifacts\**\*.trx
-  name: xUnit Test Results
+
 deploy:
 # Publish NuGet packages
 - provider: NuGet
@@ -42,6 +43,7 @@ deploy:
   skip_symbols: true
   on:
    branch: master
+
 - provider: NuGet
   name: production
   api_key:
