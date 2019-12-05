@@ -16,33 +16,24 @@ environment:
   # Disable sending usage data to Microsoft
   DOTNET_CLI_TELEMETRY_OPTOUT: true
 
-configuration: Release
-
-build:
-  publish_nuget: true
-
-branches:
-  only:
-    - master
+nuget:
+  disable_publish_on_pr: true
 
 before_build:
-- dotnet restore
+- cmd: dotnet restore
 
-build_script:
-- dotnet publish --version-suffix "$env:appveyor_build_number"
-
-artifacts:
-# Store NuGet packages
-- path: .\Artifacts\**\*.nupkg
-  name: NuGet
+build:
+  project: Harmony.sln
+  publish_nuget: true
+  verbosity: minimal
 
 deploy:
-# Publish NuGet packages
 - provider: NuGet
   server: https://nuget.pkg.github.com/magictrevor/index.json
-  username: magictrevor
   api_key:
-    secure: o0U09lH4aNaLu0yBHIpwKF1caCqBX6v612buVrfJ3ZQKDCMSfcve9E8HC76v0RG1
+    secure: syppHfiZh7NMERPz6vx5mvN4VgfJPHNtRqiESPtr1Ahg517zHlq7R8mJE8SWpLU7d1LFMb1LfRX3lLZqxue7b3oOHkTnhVfCJk7u5glOfvk=
+  username:
+    secure: LiBRQO0sP85WoCgDlUaKVw==
   skip_symbols: true
   on:
-   branch: master
+    branch: master
