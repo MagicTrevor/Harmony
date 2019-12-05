@@ -35,9 +35,10 @@ artifacts:
 deploy:
 # Publish NuGet packages
 - provider: NuGet
-  server: https://www.myget.org/F/harmony-ci/api/v2/package
+  server: https://nuget.pkg.github.com/magictrevor/index.json
+  username: magictrevor
   api_key:
-    secure: 0TIu1ladl/MtDKeSUVU6nJ0ntB8fXpppFYO6F0CylWNPlQxO7xa6q0BKDSbQ+9e6
+    secure: o0U09lH4aNaLu0yBHIpwKF1caCqBX6v612buVrfJ3ZQKDCMSfcve9E8HC76v0RG1
   skip_symbols: true
   on:
    branch: master
