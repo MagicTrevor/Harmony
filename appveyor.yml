@@ -18,6 +18,9 @@ environment:
 
 configuration: Release
 
+build:
+  publish_nuget: true
+
 branches:
   only:
     - master
