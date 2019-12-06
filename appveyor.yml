@@ -43,8 +43,7 @@ deploy:
   server: https://nuget.pkg.github.com/magictrevor/index.json
   api_key:
     secure: o0U09lH4aNaLu0yBHIpwKF1caCqBX6v612buVrfJ3ZQKDCMSfcve9E8HC76v0RG1
-  username:
-    secure: LiBRQO0sP85WoCgDlUaKVw==
+  username: magictrevor
   skip_symbols: true
   on:
     branch: master
